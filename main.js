@@ -1,8 +1,12 @@
+//sets up Subway Obk
+
 var Subway = {
       'n': ['N-Times Square', 'N-34th', 'N-28th', 'N-23rd', 'Union Square', 'N-8th'],
       'l': ['L-8th', 'L-6th', 'Union Square', 'L-3rd', 'L-1st'],
       'six' : ['S-Grand Central', 'S-33rd', 'S-28th', 'S-23rd', 'Union Square', 'S-Astor Place']
   }
+//init global var's
+
 var line;
 var change = false;
 var distanceToU;
@@ -11,7 +15,12 @@ var result;
 var start = document.getElementById('startPoint');
 var end = document.getElementById('endPoint');
 
+//add event listeners
+
 end.addEventListener('change', function(e){
+
+//uses the checkLine() function to calculate the correct start array index, uses it to celculate distance from 'Upton Union Square' then uses .abs to make the num absolout. 
+
   switch (checkLine(start)) {
   case "l":
     console.log("line l selected.");
@@ -47,6 +56,9 @@ end.addEventListener('change', function(e){
   default:
     console.log("Sorry, we dont know that line");
   }
+
+
+//uses the checkLine() function to calculate the correct end array index, uses it to celculate distance from 'Upton Union Square' then uses .abs to make the num absolout. 
 
     switch (checkLine(end)) {
   case "l":
@@ -84,9 +96,10 @@ end.addEventListener('change', function(e){
     console.log("Sorry, we dont know that line end");
   }
 
-  if (checkLine(start) == checkLine(end)) {
+  //attempts to recognice if journey is carried out on same line or not, allocated the appropriate result 
 
-   result = startIndex - endIndex;
+  if (checkLine(start) == checkLine(end)) {
+    result = startIndex - endIndex;
     result = Math.abs(result);
 
   } else if(checkLine(start) !== checkLine(end) && (checkLine(start) !== 'u')) {
@@ -100,11 +113,9 @@ end.addEventListener('change', function(e){
   } else if (startIndex && endIndex === 4) {
     result = 'You are at the right place, you dont need to get any tube, ideot.';
 
-  }
+  } 
 
-
-
-
+//assigns result if var result === 0 (destination and location are the same)
 if (result === 0) {
   result = 'You are at the right place, you dont need to get any tube, ideot.'
 } 
@@ -116,9 +127,10 @@ if (result === 0) {
 
 });
 
+//this function takes tha argument 'location' and identifies and returns its given line using slice()
+
 function checkLine(location){
   line = location.value.slice(0,1).toLowerCase();
-  console.log(line);
   return line;
   }
 
