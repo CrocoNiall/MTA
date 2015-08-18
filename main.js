@@ -1,7 +1,7 @@
 var Subway = {
       'n': ['N-Times Square', 'N-34th', 'N-28th', 'N-23rd', 'Union Square', 'N-8th'],
       'l': ['L-8th', 'L-6th', 'Union Square', 'L-3rd', 'L-1st'],
-      'six' : ['6-Grand Central', '6-33rd', '6-28th', '6-23rd', 'Union Square', '6-Astor Place']
+      'six' : ['S-Grand Central', 'S-33rd', 'S-28th', 'S-23rd', 'Union Square', 'S-Astor Place']
   }
 var line;
 var change = false;
@@ -37,6 +37,13 @@ end.addEventListener('change', function(e){
     console.log('change ' + distanceToU);
     break;
 
+  case "u":
+    console.log("traveling from Union Square.");
+    startIndex = Subway.six.indexOf(start.value);
+    distanceToU = 0;
+    console.log('you dont need to change');
+    break;
+
   default:
     console.log("Sorry, we dont know that line");
   }
@@ -66,31 +73,41 @@ end.addEventListener('change', function(e){
     console.log('then ' + distanceFromU);
     break;
 
+  case "u":
+    console.log("traveling to Union Square.");
+    endIndex = Subway.six.indexOf(end.value);
+    distanceFromU = 0;
+    console.log('you dont need to change');
+    break;
+
   default:
     console.log("Sorry, we dont know that line end");
   }
-
-
-
-  //startIndex = Subway.n.indexOf(start.value);
-  //endIndex = Subway.n.indexOf(end.value);
-
-
 
   if (checkLine(start) == checkLine(end)) {
 
    result = startIndex - endIndex;
     result = Math.abs(result);
-  } else if(checkLine(start) !== checkLine(end)) {
+
+  } else if(checkLine(start) !== checkLine(end) && (checkLine(start) !== 'u')) {
     change = true;
     console.log('you need to change at Union Square')
     result = 'Ride tube for ' + distanceToU + ' stops. Then change to ' + checkLine(end) + " line, and get off after " + distanceFromU + ' stops.';
+
+  } else if (checkLine(start) === 'u') {
+    result = 'Ride the ' + checkLine(end) + ' line for ' + distanceFromU + ' stops.';
+
+  } else if (startIndex && endIndex === 4) {
+    result = 'You are at the right place, you dont need to get any tube, ideot.';
 
   }
 
 
 
 
+if (result === 0) {
+  result = 'You are at the right place, you dont need to get any tube, ideot.'
+} 
   document.getElementById('answer').innerHTML = result;
   checkLine(end);
   console.log(startIndex);

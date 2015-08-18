@@ -3,31 +3,60 @@
 <head>
   <title>MTA Navigator</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link href='http://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
+  <header>
+  </header>
+  <div id="innerContainer">
+    <h1>NYC Subway Planner</h1>
   <form>
     <select id='startPoint'>
-      <option value="N-Times Square">Times Square</option>
-      <option value="N-34th">N-34th</option>
-      <option value="N-28th">N-28th</option>
-      <option value="N-23rd">N-23rd</option>
-      <option value="Union Square">Union Square</option>
+      <option value="N-Times Square"> N-LINE - Times Square</option>
+      <option value="N-34th">N-LINE - 34th</option>
+      <option value="N-28th">N-LINE - 28th</option>
+      <option value="N-23rd">N-LINE - 23rd</option>
+      <option value="Union Square">ALL-LINES - Union Square</option>
+      <option value="N-8th">N-LINE - 8th</option>
+      <option value="L-8th">L-LINE - 8th</option>
+      <option value="L-6th">L-LINE - 6th</option>
+      <option value="L-3rd">L-LINE - 3rd</option>
+      <option value="L-1st">L-LINE - 1st</option>
+      <option value="S-Grand Centeral">6-LINE - Grand Centeral</option>
+      <option value="S-33rd">S-LINE - 33rd</option>
+      <option value="S-28th">S-LINE - 28th</option>
+      <option value="S-23rd">S-LINE - 23rd</option>
+      <option value="S-Astor Place ">S-LINE - 1st</option>
+
     </select>
     <select id='endPoint'>
-      <option value="N-Times Square">Times Square</option>
-      <option value="N-34th">34th</option>
-      <option value="N-28th">28th</option>
-      <option value="N-23rd">23rd</option>
-      <option value="Union Square">Union Square</option>
-      <option value="N-8th">8th</option>
-      <option value="L-8th">L-8th</option>
-      <option value="L-6th">L-6th</option>
-      <option value="L-3rd">L-3rd</option>
-      <option value="L-1st">L-1st</option>
+      <option value="N-Times Square"> N-LINE - Times Square</option>
+      <option value="N-34th">N-LINE - 34th</option>
+      <option value="N-28th">N-LINE - 28th</option>
+      <option value="N-23rd">N-LINE - 23rd</option>
+      <option value="Union Square">ALL-LINES - Union Square</option>
+      <option value="N-8th">N-LINE - 8th</option>
+      <option value="L-8th">L-LINE - 8th</option>
+      <option value="L-6th">L-LINE - 6th</option>
+      <option value="L-3rd">L-LINE - 3rd</option>
+      <option value="L-1st">L-LINE - 1st</option>
+      <option value="S-Grand Centeral">S-LINE - Grand Centeral</option>
+      <option value="S-33rd">S-LINE - 33rd</option>
+      <option value="S-28th">S-LINE - 28th</option>
+      <option value="S-23rd">S-LINE - 23rd</option>
+      <option value="S-Astor Place ">S-LINE - 1st</option>
     </select>
   </form>
-<p> stops between: </p><p id='answer'></p>
+<p><i>Select your start and end stations to get a route</i></p>
+
+<p id='answer'></p>
+
+
+ </div>
+
 </body>
     <script src="main.js"></script>
 </html>
+
+
+
